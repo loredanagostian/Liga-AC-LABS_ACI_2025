@@ -1,0 +1,28 @@
+table {
+  width: 100%;
+}
+
+.full-width {
+  font-size: 14px;
+  width: 100%;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+.demo-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+}

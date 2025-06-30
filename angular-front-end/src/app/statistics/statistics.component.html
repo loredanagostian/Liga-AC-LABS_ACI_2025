@@ -1,0 +1,52 @@
+<button (click)="goToDashboard()">Back to Dashboard</button>
+
+<div style="max-width: 1000px; margin: auto; margin-bottom: 20px;">
+    <label for="account-select">Select Account:</label>
+    <select id="account-select" [(ngModel)]="selectedAccount" (change)="onAccountChange()">
+        <option [ngValue]="null">All Accounts</option>
+        <option *ngFor="let acc of accounts" [value]="acc.cardNumber">
+            {{ acc.cardHolderName }}
+        </option>
+    </select>
+</div>
+
+<div style="width: 100%; max-width: 1000px; margin: auto;">
+
+    <!-- Navigation and time unit selector -->
+    <div *ngIf="timeUnit !== 'all'" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <button (click)="goBack()">&lt;</button>
+        <span>{{ currentPeriodLabel }}</span>
+        <button (click)="goForward()">&gt;</button>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <select [(ngModel)]="timeUnit" (change)="updateChart()">
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+            <option value="all">All</option>
+        </select>
+    </div>
+
+    <!-- Chart 1: General Transactions -->
+    <div style="height: 400px; margin-bottom: 180px;">
+        <h3 style="text-align: center;">Transaction Summary</h3>
+        <canvas baseChart
+                [data]="{ labels: chartLabels, datasets: chartDataGeneral }"
+                [options]="chartOptions"
+                [type]="'line'">
+        </canvas>
+    </div>
+
+    <!-- Chart 2: Error Breakdown -->
+    <div style="height: 400px; margin-bottom: 160px;">
+        <h3 style="text-align: center;">Detailed Error Breakdown</h3>
+        <canvas baseChart
+                [data]="{ labels: chartLabels, datasets: chartDataErrors }"
+                [options]="chartOptions"
+                [type]="'line'">
+        </canvas>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>Add Transaction</h2>
+<button mat-icon-button (click)="onClose()" class="close-button">
+    <mat-icon>cancel</mat-icon>
+</button>
+<mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Cardholder name</mat-label>
+        <input matInput type="text"
+               [value]="cardHolderName"
+               [readonly]="true"
+               [(ngModel)]="cardHolderName"
+               >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Card Number</mat-label>
+        <input matInput type="text"
+               [value]="cardNumber"
+               [readonly]="true"
+               [(ngModel)]="cardNumber"
+               >
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Transaction Amount</mat-label>
+        <input matInput
+               type="number"
+               [value]="transactionAmount"
+               [(ngModel)]="transactionAmount"
+               [min]="1"
+               [max]="1000000000"
+               (input)="validateTransactionNumber($event)"
+               >
+
+        <mat-hint>Enter the amount in dollars</mat-hint>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="addTransaction()"
+            [disabled]="!cardNumber || transactionAmount <= 0">
+        Add
+    </button>
+</mat-dialog-actions>

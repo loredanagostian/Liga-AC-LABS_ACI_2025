@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./angular-front-end
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    restart: unless-stopped

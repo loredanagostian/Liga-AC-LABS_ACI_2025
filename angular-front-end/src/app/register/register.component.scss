@@ -1,0 +1,38 @@
+.register-wrapper {
+  width: 400px;
+  max-width: 400px;
+}
+
+.register-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 15px;
+}
+
+.register-group input {
+  width: 75%;
+}
+
+.register-group button {
+  width: 100px;
+}
+
+.login-group {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.login-group label {
+  margin: 0;
+}
+
+.login-group button {
+  margin-left: 10px;
+}
+
+.user-role label {
+  margin-right: 10px;
+}

@@ -1,0 +1,48 @@
+<div class="register-wrapper">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="register">
+
+        <label class="title">
+            <h5 class="hint">Complete these fields to create a new account</h5>
+        </label>
+
+        <div class="register-group">
+
+            <input required class="username"
+                   name="username"
+                   [(ngModel)]="user.name"
+                   type="text"
+                   id="login_username"
+                   placeholder="Username">
+
+            <input required class="password"
+                   name="password"
+                   [(ngModel)]="user.password"
+                   type="password"
+                   id="login_password"
+                   placeholder="Password">
+
+            <input required class="confirmPassword"
+                   name="confirm_password"
+                   [(ngModel)]="user.confirmPassword"
+                   type="password"
+                   id="login_confirm_password"
+                   placeholder="Confirm password">
+
+            <!-- Dropdown for User Role -->
+            <div class="user-role">
+                <label for="userRole">Select Role</label>
+                <select name="role" id="userRole" [(ngModel)]="user.userRole" required>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="ANALYST">ANALYST</option>
+                    <option value="SUPPORT">SUPPORT</option>
+                </select>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary"
+                    [disabled]="registerForm.form.invalid">
+                Create account
+            </button>
+        </div>
+    </form>
+</div>

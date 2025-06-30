@@ -1,0 +1,35 @@
+<div class="analytics-container">
+    <h2>Transaction Analytics</h2>
+
+    <button class="btn btn-primary" (click)="navigateToAccounts()">
+         Back to Accounts
+    </button>
+
+    <div *ngIf="analyticsData.length === 0" class="no-data-message">
+       <h3>
+       No accounts selected for analysis.
+       </h3>
+    </div>
+
+    <div *ngIf="transactionsData.length === 0" class="no-data-message">
+        <h3>
+        No transactions available for the selected accounts.
+        </h3>
+    </div>
+
+    <div *ngIf="transactionsData.length > 0" class="charts-container">
+        <div class="chart-card">
+            <h3>Transaction Amounts by Account</h3>
+            <canvas id="amountChart"></canvas>
+        </div>
+        <div class="chart-card-timeline">
+            <h3> Number of Transactions Timeline by Month</h3>
+            <canvas id="timelineChartByMonth"></canvas>
+        </div>
+        <div class="chart-card-timeline">
+            <h3>Transaction Amounts Timeline by Month</h3>
+            <canvas id="amountTimelineChartByMonth"></canvas>
+        </div>
+
+    </div>
+</div>
